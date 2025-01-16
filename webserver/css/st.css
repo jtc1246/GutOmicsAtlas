@@ -1,0 +1,56 @@
+#st-gene-select {
+    margin-left: 2.5vw;
+    width: 10vw;
+    margin-bottom: 2vw;
+}
+
+#st-gene-select > div {
+    height: 28.8vw;
+    overflow-y: scroll;
+}
+
+#static-img, #static-img-2 {
+    display: flex;
+    height: 30vw;
+    margin-left: 2.5vw;
+    width: 95vw;
+    justify-content: space-evenly;
+}
+
+#static-img img, #static-img-2 img {
+    height: 100%;
+}
+
+#static-img-2 {
+    margin-top: 1.5vw;
+}
+
+#selected {
+    display: none;
+    width: 70vw;
+    margin-left: 2.5vw;
+    margin-top: 5vw;
+    /* margin-bottom: -5vw !important; */
+}
+
+#back-main {
+    width: 10.5vw;
+    border-radius: 0.6vw;
+    margin-top: -4vw;
+    margin-bottom: 1.5vw;
+    margin-left: 80vw;
+    display: none;
+}
+
+#selected-right {
+    display: none;
+    width: 24vw;
+    margin-left: 74vw;
+    flex-direction: column;
+    row-gap: 1vw;
+    margin-top: -36vw;
+}
+
+#selected-right img {
+    width: 100%;
+}
