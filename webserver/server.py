@@ -15,6 +15,7 @@ from datetime import datetime, timezone
 from ai import process_ai_chat
 from mySecrets import hexToStr
 from secrets import token_hex
+from my_email import send_email
 
 
 IS_SERVER = False
@@ -92,6 +93,8 @@ class Request(BaseHTTPRequestHandler):
             return self.process_api()
         if(path.startswith('/data/')):
             return self.process_data()
+        if(path.startswith('/generated/')):
+            return self.process_generated()
         if (path == '/robots.txt'):
             return self.process_robots_txt()
         if (path == '/sitemap.xml'):
@@ -113,6 +116,23 @@ class Request(BaseHTTPRequestHandler):
     def log_message(self, format, *args):
         pass
     
+    def process_generated(self):
+        file_name = self.path[len('/generated/'):]
+        assert('..' not in file_name)
+        file_path = '../docker_data/' + file_name
+        with open(file_path, 'rb') as f:
+            data = f.read()
+        self.send_response(200)
+        self.send_header('Connection', 'keep-alive')
+        self.send_header('Content-Type', 'image/png')
+        self.send_header('Content-Length', len(data))
+        self.send_header('Access-Control-Allow-Origin', '*')
+        self.end_headers()
+        self.wfile.write(data)
+        self.wfile.flush()
+        return
+        
+    
     def process_api(self):
         path = self.path
         path = path[5:]
@@ -123,9 +143,29 @@ class Request(BaseHTTPRequestHandler):
         py_file_name = '../docker_data/' + file_name
         success, error = (False, b'')
         if (data['function'] == 'scrna' and data['type'] == 'ep'):
+            # email here
             id = 25
             gene = data['gene']
-            success, error = R_call(id, {'p1': gene, 'p2': R_file_name})
+            email = data['email']
+            def email_thread():
+                success, error = R_call(id, {'p1': gene, 'p2': R_file_name})
+                png_bytes = pdf_to_png_bytes(py_file_name)
+                py_png_file_name = py_file_name.replace('.pdf', '.png')
+                with open(py_png_file_name, 'wb') as f:
+                    f.write(png_bytes)
+                url = 'http://' + self.headers['Host'] + '/generated/' + file_name.replace('.pdf', '.png')
+                title = 'Result for scRNA-Seq Epithelial cells analysis'
+                content = f'{gene}\n\n{url}'
+                send_email(email, title, content)
+            start_new_thread(email_thread, ())
+            self.send_response(202)
+            self.send_header('Connection', 'keep-alive')
+            self.send_header('Content-Length', 0)
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
+            self.wfile.write(b'')
+            self.wfile.flush()
+            return
         if (data['function'] == 'scrna' and data['type'] == 'eecs'):
             id = 24
             gene = data['gene']

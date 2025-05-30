@@ -18,5 +18,5 @@ def pdf_to_png_bytes(pdf_path, dpi=300):
         return result
 
 
-png = pdf_to_png_bytes('GobletcellMAplot.pdf')
-open('goblet_left.png', 'wb').write(png)
+png = pdf_to_png_bytes('Xeniumepithelialdotplot (2).pdf')
+open('./imgs/spatial_trans_right_no_embed.png', 'wb').write(png)

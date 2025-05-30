@@ -107,3 +107,25 @@ window.addEventListener('DOMContentLoaded', function () {
         document.getElementById('main-img-container').classList.add('loading');
     });
 });
+
+window.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.card').forEach(card => {
+        card.addEventListener('click', () => {
+            document.querySelectorAll('.card-selection').forEach(elem => {
+                elem.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.lib-2-to-1').forEach(elem => {
+                elem.classList.remove('hidden');
+            });
+
+            document.querySelectorAll('.sub-title').forEach(elem => {
+                elem.classList.add('hidden');
+            });
+
+            document.querySelectorAll('.sub-description').forEach(elem => {
+                elem.classList.add('hidden');
+            });
+        });
+    });
+});

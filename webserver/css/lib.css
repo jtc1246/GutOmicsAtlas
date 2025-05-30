@@ -1,18 +1,18 @@
 :root {
     --lib-dropdown-height: 2.125vw;
-    --lib-dropdown-normal-color: rgb(0, 137, 30);
+    --lib-dropdown-normal-color: #3583b4;
     --lib-dropdown-border-radius: 0.6vw;
-    --lib-dropdown-hover-color: rgb(5, 154, 37);
-    --lib-dropdown-active-color: rgb(6, 169, 41);
+    --lib-dropdown-hover-color: #4589b3;
+    --lib-dropdown-active-color: #99a9d1;
     --lib-popup-background: #f9f9f9;
     --lib-popup-hover-color: #ddd;
     /* --lib-sumit-background: rgb(196, 0, 222); */
-    --lib-sumit-background: rgb(0, 47, 255);
-    --lib-sumit-hover-color: rgb(47, 85, 255);
-    --lib-sumit-active-color: rgb(79, 111, 255);
+    --lib-sumit-background: #3583b4;
+    --lib-sumit-hover-color: #4589b3;
+    --lib-sumit-active-color: #99a9d1;
     --lib-submit-height: 2.5vw;
     --lib-text-single-height: 2.25vw;
-    --lib-input-cursor-color: rgb(215, 84, 198);
+    --lib-input-cursor-color: #e84d94;
 }
 
 /*
@@ -24,6 +24,8 @@
     overflow: visible;
     width: 15vw;
     height: var(--lib-dropdown-height);
+    margin-top:1vw;
+
 }
 
 .lib-dropdown > button {
@@ -171,6 +173,8 @@
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.7);
+    
 }
 
 .lib-submit:hover {
@@ -181,6 +185,7 @@
 .lib-submit:active {
     cursor: pointer;
     background-color: var(--lib-sumit-active-color);
+    box-shadow: 0 3px 4px rgba(0, 0, 0, 0.0);
 }
 
 
@@ -195,6 +200,7 @@
     caret-color: var(--lib-input-cursor-color);
     font-family: "Reddit Mono", monospace;
     font-weight: 400;
+    
 }
 
 .lib-text-single::placeholder {

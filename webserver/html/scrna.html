@@ -8,12 +8,8 @@
   <title>scRNA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Moderustic:wght@300..800&family=Noto+Sans+JP:wght@100..900&family=Raleway:ital,wght@0,100..900;1,100..900&family=Reddit+Mono:wght@200..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@100..800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lexend:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+  
   <link href="/css/reset.css" rel="stylesheet">
   <link href="/css/global.css" rel="stylesheet">
   <link href="/css/lib.css" rel="stylesheet">
@@ -27,10 +23,10 @@
 
 <body class="about">
   <header>
-    <div id="title-text">
-      <h1>Gut<p>Omics</p>Atlas</h1>
-    </div>
     <nav>
+      <div id="title-text">
+        <img src="/imgs/logo_processed.png" id="logo"><h1>Gut<p>Omics</p>Atlas</h1>
+      </div>
       <div id="nav">
         <a href="/html/home.html">Home</a>
         <a href="/html/ai_chat.html">Chat with AI</a>
@@ -38,20 +34,42 @@
         <a href="/html/snatac.html">snATAC</a>
         <a href="/html/sm.html">Spatial Metabolomics</a>
         <a href="/html/st.html">Spatial Transcriptomics</a>
+        <div>|</div>
         <a href="/html/help.html">Help</a>
         <a href="/html/about.html">About</a>
       </div>
     </nav>
   </header>
   <div id="main-container">
-    <div class="lib-2-to-1" id="cell-selection">
+    <div class="lib-2-to-1 hidden" id="cell-selection">
       <label>
         <input type="radio" name="cell-selection" id="ep-select">
-        <p>Epithelial</p>
+        <p>Epithelial cells</p>
       </label>
       <label>
         <input type="radio" name="cell-selection" id="eecs-select">
         <p>Enteroendocrine cells</p>
+      </label>
+    </div>
+    <h1 class="sub-title">Select Cell Type scRNA</h1>
+    <p class="sub-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+      Aenean turpis nisl, sollicitudin sit amet laoreet sit amet, 
+      tristique ut sapien. Duis vestibulum congue porta. 
+      Phasellus ac ullamcorper eros, in sollicitudin mi. </p>
+    <div class="card-selection">
+      <label class="card" id="left-card" for="ep-select">
+        <h3>Epithelial Cells</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <p>Aenean turpis nisl, sollicitudin sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <p>Aenean turpis nisl, sollicitudin sit amet</p>
+      </label>
+      <label class="card" id="right-card" for="eecs-select">
+        <h3>Enteroendocrine Cells</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <p>Aenean turpis nisl, sollicitudin sit amet</p>
+        <p>Lorem ipsum dolor sit amet, consectetur</p>
+        <p>Aenean turpis nisl, sollicitudin sit amet</p>
       </label>
     </div>
     <div id="whole-img-container" class="">
@@ -62,24 +80,35 @@
           <p>Loading...</p>
         </div>
         <p id="error"></p>
+        <p id="email-result">Submit success successfully, please check your email later.</p>
       </div>
       <div id="static-imgs">
-        <img src="/imgs/scRNA_ep_left_no_embed.png" class="ep">
-        <img src="/imgs/scRNA_ep_right_no_embed.png" class="ep">
-        <img src="/imgs/scRNA_eecs_left_no_embed.png" class="eecs">
-        <img src="/imgs/scRNA_eecs_right_no_embed.png" class="eecs">
+        <img src="/imgs/scRNA_ep_left_no_embed.png" class="ep" id="ep-left">
+        <img src="/imgs/scRNA_ep_right_no_embed.png" class="ep" id="ep-right">
+        <img src="/imgs/scRNA_eecs_left_no_embed.png" class="eecs" id="eecs-left">
+        <img src="/imgs/scRNA_eecs_right_no_embed.png" class="eecs" id="eecs-right">
       </div>
     </div>
     <div id="input-area" class="">
       <div style="position: relative; width: 100%; height: 100%">
-        <p id="genes-text">Genes:</p>
+        <p id="genes-text">Gene:</p>
         <input type="text" id="gene-input" class="lib-text-single">
+        <p id="email-text">Email:</p>
+        <input type="text" id="email-input" class="lib-text-single">
         <p id="error-msg"></p>
         <button id="submit-button" class="lib-submit">Submit</button>
         <a id="region-button" class="lib-submit ep" href="/html/scrna_region.html" target="_blank">Region Comparison</a>
         <a id="goblet-button" class="lib-submit ep" href="/html/scrna_goblet.html" target="_blank">Goblet Cells</a>
       </div>
     </div>
+  </div>
+
+  <div class="chat-container">
+    <div class="chat-box hidden">
+      <p>Hello, how can I help you?</p>
+      <input type="text" class="chat-input" placeholder="Type your message...">
+    </div>
+    <button class="chat-button">💬</button>
   </div>
   <!-- <div id="tmp-place-holder" style="min-height: 30vw;"></div> -->
 </body>

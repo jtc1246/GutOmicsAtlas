@@ -52,9 +52,10 @@ main {
 #welcome-to {
     font-size: 2vw;
     font-weight: 500;
-    color: rgb(187, 0, 255);
+    color: #9a4942;
     overflow: visible;
     padding-bottom: 1vw;
+    font-family: "Lexend", sans-serif;
 }
 
 #refer {
@@ -79,13 +80,13 @@ p > a {
     font-size: 1.5vw;
     font-weight: 500;
     padding-top: 1vw;
-    color: rgb(160, 21, 211);
+    color: #9a4942;
 }
 
 .my-links {
     font-size: 1.25vw;
     text-decoration: underline;
-    color: #3948d2 !important;
+    color: #035f37 !important;
     display: block;
     line-height: 1.35;
 }
@@ -116,7 +117,8 @@ p > a {
     font-size: 1.75vw;
     font-weight: 500;
     padding-bottom: 1.5vw;
-    color: rgb(187, 0, 255);
+    color: #9a4942;
+    font-family: "Lexend", sans-serif;
 }
 
 .stage {
@@ -133,11 +135,16 @@ p > a {
 }
 
 .email > a {
-    color: #3948d2 !important;
+    color: #035f37 !important;
 }
 
 .people-desc {
     font-size: 1.25vw;
     line-height: 1.35;
     text-align: justify;
+}
+
+#intro-image{
+    border-radius:2vw 2vw 2vw 2vw;
+    border: 1vw solid white;
 }

@@ -13,8 +13,8 @@ var gallery_offset = 0;
 
 
 const GLB_SLIDE_SERVER_URL = 'http://jtc1246.github.io/cosmx-img-compressed'
-const GLB_DATA_SERVER_URL = 'http://128.84.40.86/data'
-const GLB_API_SERVER_URL = 'http://128.84.40.86/api'
+const GLB_DATA_SERVER_URL = 'http://128.84.40.69/data'
+const GLB_API_SERVER_URL = 'http://128.84.40.69/api'
 const GLB_AI_CHAT_URL = '/chat'
 
 

@@ -1,20 +1,25 @@
 main {
-    width: calc(100% - 20vw);
-    margin-left: 10vw;
-    margin-right: 10vw;
+    width: calc(100% - 640px);
+    margin-left: 320px;
+    margin-right: 320px;
 }
 
 
 
-h1 {
+#title {
     font-size: 2.5vw;
     text-align: center;
     padding-bottom: 1.5vw;
+    font-family: "Lexend", sans-serif;
+    margin-top:1.5vw;
+    color: #9a4942;
 }
 
 .section-title {
     font-size: 2vw;
     padding-bottom: 1vw;
+    font-family: "Lexend", sans-serif;
+    color: #9a4942;
 }
 
 .sub-title {
@@ -42,14 +47,14 @@ h1 {
 
 .mytext > a {
     font-size: 1.375vw;
-    color: blue;
-    border-bottom: 0.15vw dotted blue;
+    color: #035f37;
+    border-bottom: 0.15vw dotted #035f37;
 }
 
 .mytext > a:hover {
     text-decoration: underline;
-    color: #ed8600;
-    border-bottom: 0.15vw dotted #ed8600;
+    color: #79bd58;
+    border-bottom: 0.15vw dotted #79bd58;
 }
 
 .mytext.last {
@@ -84,6 +89,29 @@ span.delete {
     color: blue;
 }
 
+#iframe-container {
+    width: 55vw;
+    height: 32.0504vw;
+    padding-bottom: 1.5vw;
+    padding-left: calc(50% - 28.5vw);
+    overflow: hidden;
+}
+
+#youtube {
+    /* width: 55vw;
+    height: 30.9375vw; */
+    width: 695px;
+    height: 405px;
+    /* transform: scale(calc(55vw / 960px)); */
+    transform-origin: 0 0;
+    /* padding-bottom: 1.5vw;
+    padding-left: calc(50% - 28.5vw); */
+}
+
 @media screen and (max-aspect-ratio: 1/1) {
 
+}
+
+body {
+    background: linear-gradient(to top, #f0e5e4, rgb(255, 255, 255));
 }

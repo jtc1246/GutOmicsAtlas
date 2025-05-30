@@ -55,4 +55,15 @@ window.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+window.addEventListener('DOMContentLoaded', function(){
+    var rcmds = document.querySelectorAll('#chat-rcmd p');
+    for(var i = 0; i < rcmds.length; i++){
+        rcmds[i].addEventListener('click', function(this_content){
+            return function(){
+                document.getElementById('chat-input-text').value = this_content;
+                document.getElementById('chat-send').click();
+            }
+        }(rcmds[i].textContent));
+    }
+});
 

@@ -5,7 +5,8 @@
 }
 
 #left {
-    width: 35vw;
+    width: 100%;
+
 }
 
 .sub-title {
@@ -79,10 +80,11 @@
 
 
 .left {
-    width: 100vw;
     height: 37.5vw;
     /* background-color: yellow; */
     position: relative;
+    margin-right:320px;
+    margin-left:320px;
 }
 
 #intro-text-2 {
@@ -103,15 +105,41 @@
     --main-text-offset: 0.5vw;
 }
 
-#main-title, #intro-text-2, #set-title, #data-table, #input-area-wrapper {
+#main-elements, #intro-text-2, #set-title, #data-table, #input-area-wrapper, #chat-rcmd {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    width:100%;
 }
 
-#main-title {
-    top: 2.5vw;
-    font-size: 3vw !important;
+#chat-input-text{
+    width:100%;
+}
+
+#main-elements {
+    top:2.5vw;
+}
+
+#main-elements > *{
+    margin-top:1.5vw;
+    text-align: center;
+}
+
+#main-elements > h2 {
+    color:gray;
+    font-family: "Lexend", sans-serif;
+    font-size:1.5vw;
+}
+
+#main-elements > h3 {
+    font-family: "Lexend", sans-serif;
+    font-style:bold;
+    font-size:2.25vw;
+}
+
+#main-elements > p {
+    color:gray;
+    font-size:1.15vw;
 }
 
 #intro-text-2 {
@@ -126,13 +154,14 @@
 
 #input-area {
     height: 4vw;
-    width: 45vw;
+    width: 100%;
     /* background-color: yellow; */
     box-sizing: border-box;
     border: 0.1vw solid #888;
     border-radius: 3vw;
     padding: 0.3vw;
     border-color: rgba(0, 0, 0, 0);
+    
 }
 
 #input-area.focusin {
@@ -174,8 +203,6 @@
     cursor: default !important;
 }
 
-
-
 #input-area > div > input {
     padding: 0;
     border: 0;
@@ -186,7 +213,7 @@
     font-size: 1.35vw;
     /* background-color: yellow; */
     height: 100%;
-    width: 39.5vw;
+    width: 92%;
     caret-color: #000;
 }
 
@@ -200,13 +227,13 @@
 }
 
 #input-area-wrapper {
-    top: 17vw;
+    top: 30vw;
     height: 4vw;
-    width: 48.5vw;
-    position: absolute;
+    /* position: absolute; */
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width:100%;
 
 }
 
@@ -215,5 +242,35 @@
 }
 
 #input-area input {
-    font-family: "Inria Sans", "Roboto", sans-serif !important;
+    font-family: "Arial", sans-serif !important;
+}
+
+#chat-rcmd {
+    top:18.5vw;
+    display: flex;
+    justify-content: space-between;
+}
+
+#chat-rcmd p {
+    padding: 0.5vw;
+    padding-top:1.2vw;
+    padding-bottom:1.2vw;
+
+    border-radius: 1vw;
+    background-color: rgba(228, 228, 228, 0.5);
+    font-size:1vw;
+    flex: 1;
+    margin: 0 10px;
+    text-align: center;
+
+    border: 3px solid #ffffff;
+}
+
+#chat-rcmd p:hover {
+    background-color: #e8e8e8;
+    cursor: pointer;
+}
+
+body {
+    background: linear-gradient(to top, #f0e5e4, rgb(255, 255, 255));
 }
